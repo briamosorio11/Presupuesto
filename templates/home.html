@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">MI PRESUPUESTO</span>
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th>Balance</th>
+                                    <th>Ingresos</th>
+                                    <th>Gastos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for date in balance %}
+                                <tr>
+                                    <td>{{ date.saldo }}</td>
+                                    <td>{{ date.ingresos }}</td>
+                                    <td>{{ date.gastos }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card red darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">MOVIMIENTOS</span>
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th>Categoria</th>
+                                    <th>Tipo</th>
+                                    <th>Monto</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for date in movimiento %}
+                                <tr>
+                                    <td>{{ date.categoria }}</td>
+                                    <td>{{ date.tipo }}</td>
+                                    <td>{{ date.monto }}</td>
+                                    <td>{{ date.fecha }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-action-btn">
+        <a href="{% url 'movimiento' %}" class="btn-floating btn-large red">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>
